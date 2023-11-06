@@ -1,0 +1,81 @@
+@import "fonts";
+@import "mixins";
+@import "breakpoints";
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+
+//Styles
+body {
+    background-image: $bg-gradient;
+    font-family: $font-primary;
+    min-height: 1000px;
+    scroll-behavior: smooth;
+}
+
+nav {
+    font-family: $font-primary;
+    .movie-logo {
+        width: 185px;
+        height: auto;
+        @include xs {
+            width: 100px;
+        }
+    }
+    [type="search"] {
+        font-size: 22px;
+        width: 50%;
+        height: 48px;
+        text-align: center;
+        color: #747373;
+        border-radius: 10px;
+        border-color: rgba(130, 130, 130, 0.268);
+        @include transition;
+        &:focus {
+            @include transition;
+            @include box-shadow;
+        }
+        @include xs {
+            width: 92% !important;
+            font-size: 17px;
+        }
+    }
+}
+
+.movie {
+    .movie-card {
+        font-family: $font-primary;
+        font-size: 20px;
+        color: #515ada;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #fefefe;
+        width: 260px;
+        height: 385px;
+        @include border;
+        @include transition;
+        &:hover {
+            @include box-shadow;
+            @include transition;
+        }
+        animation: entrada 0.5s;
+    }
+    .img-fluid {
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+}
+
+@keyframes entrada {
+    0% {
+        transform: scale(0);
+        background-color: #000;
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+        background-color: #fff;
+        opacity: 1;
+    }
+}
